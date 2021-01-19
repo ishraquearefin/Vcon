@@ -9,15 +9,16 @@
 <title>V_CON PROJECT Home Landing Page  </title>
 
 <?php wp_head();?>
+
 <!--<script src="js/jquery-2.2.4.min.js"></script>
 
 <!-- Bootstrap files (jQuery first, then Popper.js, then Bootstrap JS) 
 
-<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/bootnavbar.css">
-<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/demo.css">
+<link rel="stylesheet" href="<?php //echo get_template_directory_uri(); ?>/css/bootnavbar.css">
+<link rel="stylesheet" href="<?php //echo get_template_directory_uri(); ?>/css/demo.css">
 
-<link href="<?php echo get_template_directory_uri(); ?>/css/bootstrap.css" rel="stylesheet" type="text/css"/>
-<script src="<?php echo get_template_directory_uri(); ?>/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+<link href="<?php// echo get_template_directory_uri(); ?>/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+<script src="<?php //echo get_template_directory_uri(); ?>/js/bootstrap.bundle.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 /// some script
 
@@ -55,8 +56,26 @@ $(document).ready(function() {
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+
+        <?php dynamic_sidebar('top-nav')?>
+
         <div class="container">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        	<?php
+                wp_nav_menu(
+                     
+                     array(
+
+                       'theme_location'=>'top-menu',
+                       'conatiner'=>'ul',
+                       'menu_class'=>'navbar-nav mr-auto'
+                          
+                     )
+
+                );
+               
+
+        	?>
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -70,7 +89,7 @@ $(document).ready(function() {
 									<a class="dropdown-item" href="#" id="navbarDropdown1" role="button">
 										<h2 class="host tophost">Solutions</h2>
 									</a>
-									<ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+									<ul class="dropdown-menu" aria-labelledby="navbarDropdown1" id ="main_menu">
 										<li><h2 class="host">Products</h2></li>        
 										<li><a href="#">Host</a></li>        
 										<li><a href="#">Room</a></li>

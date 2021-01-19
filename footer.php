@@ -1,4 +1,5 @@
-<div class="container-fuild bannerBGSeven">  
+<div class="container-fuild bannerBGSeven"> 
+ <?php dynamic_sidebar('footer-nav')?> 
    <div class="container">
     <div class="col-md-12">
       <div class="row">
@@ -80,7 +81,7 @@
 
 
 
-    <!--<script src="<?php echo get_template_directory_uri(); ?>/js/bootnavbar.js" ></script>
+    <!--<script src="<?php //echo get_template_directory_uri(); ?>/js/bootnavbar.js" ></script>
     <script>
         $(function () {
             $('#main_navbar').bootnavbar();

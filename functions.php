@@ -18,6 +18,13 @@ wp_enqueue_style('custom');
 }
 add_action('wp_enqueue_scripts','load_stylesheets');
 
+
+/*require_once('wp_bootstrap_navwalker.php');
+function register_my_menu() {
+  register_nav_menu('header-menu',__( 'Header Menu' ));
+}
+add_action( 'init', 'register_my_menu' );
+
 /*<!-- jQuery -->
 <script src="js/jquery-2.2.4.min.js"></script>
 <script src="js/bootstrap.bundle.min.js" type="text/javascript"></script>
@@ -25,6 +32,40 @@ add_action('wp_enqueue_scripts','load_stylesheets');
 
 //load scripts
 
+
+//Custom Widgets
+function ieatwebsites_widgets_init(){
+register_sidebar( 
+	array(
+		'name' => esc_html__('Footer Navigation','ieatwebsites'), 
+		'id'=>'footer-nav',
+		'description'=>esc_html__('Add widgets here','ieatwebsites'),
+		'before_widget'=>'',
+		'after_widget'=>'',
+		'before_title'=>'<h3>',
+		'after_title'=>'</h3>',
+
+
+	)
+);
+register_sidebar( 
+	array(
+		'name' => esc_html__('Top Bar','ieatwebsites'), 
+		'id'=>'top-nav',
+		'description'=>esc_html__('Add widgets here','ieatwebsites'),
+		'before_widget'=>'',
+		'after_widget'=>'',
+		'before_title'=>'<h3>',
+		'after_title'=>'</h3>',
+
+
+	)
+);
+}
+add_action('widgets_init','ieatwebsites_widgets_init');
+//widgets end here
+
+//jquery scripts
 function addjs(){
 wp_register_scripts('jQuery',get_template_directory_uri().'/js/jquery-2.2.4.min.js',array(),1,1,1);
 wp_enqueue_scripts('jQuery');
@@ -39,3 +80,18 @@ wp_register_scripts('custom',get_template_directory_uri().'/custom.js',array(),1
 wp_enqueue_scripts('custom');
 
 }
+
+
+
+
+//Custom Menus
+register_nav_menus(
+
+array(
+     'top-menu'=> __('Top Menu','Vcon Theme')
+
+)
+
+);
+add_theme_support('menus');
+?>
